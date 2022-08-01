@@ -28,10 +28,13 @@ def login():
 
 @app.route('/home')
 def home():
-	return render_template('home.html',facebook_friends=facebook_friends, len_list = len(facebook_friends))
+	return render_template('home.html',facebook_friends=facebook_friends)
   
 
-
+@app.route('/friend_exists/<string:name>',methods=['GET', 'POST'])
+def friend(name):
+	exist_friend = name in facebook_friends
+	return render_template('friend_exists.html', name = name, exist_friend= exist_friend)
 
 if __name__ == "__main__":  # Makes sure this is the main process
 	app.run( # Starts the site

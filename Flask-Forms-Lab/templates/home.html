@@ -12,8 +12,8 @@
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
 <ul id="myUL">
-  {%for i in range(0, len_list)%}
-    <li><a href="#">{{facebook_friends[i]}}</a></li>
+  {%for i in facebook_friends%}
+    <li><a href="/friend_exists/{{i}}">{{i}}</a></li>
   {%endfor%}
 </ul>
 
